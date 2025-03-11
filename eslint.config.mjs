@@ -1,13 +1,13 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
-import tseslint from 'typescript-eslint'
+import { config, configs } from 'typescript-eslint'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import importPlugin from 'eslint-plugin-import'
 import pluginPromise from 'eslint-plugin-promise'
 
 /** @type {import('eslint').Linter.Config[]} */
 
-export default tseslint.config([
+export default config([
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     extends: [
@@ -19,8 +19,8 @@ export default tseslint.config([
     languageOptions: { globals: globals.node },
   },
   pluginJs.configs.recommended,
-  tseslint.configs.strict,
-  tseslint.configs.stylistic,
+  configs.strict,
+  configs.stylistic,
   {
     rules: {
       quotes: ['error', 'single'],
@@ -28,6 +28,7 @@ export default tseslint.config([
       'no-irregular-whitespace': 'error',
       'no-multi-spaces': 'error',
       'prettier/prettier': 'error',
+      'no-useless-constructor': 'off',
     },
     settings: {
       'import/resolver': {
