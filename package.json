@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "GymPass style app.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +20,8 @@
     "@eslint/js": "9.22.0",
     "@types/bcryptjs": "2.4.6",
     "@types/node": "22.13.10",
+    "@vitest/coverage-v8": "3.0.8",
+    "@vitest/ui": "3.0.8",
     "eslint": "9.22.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-import-resolver-typescript": "3.8.3",
@@ -27,7 +34,9 @@
     "tsup": "8.4.0",
     "tsx": "4.19.3",
     "typescript": "5.8.2",
-    "typescript-eslint": "8.26.0"
+    "typescript-eslint": "8.26.0",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.8"
   },
   "dependencies": {
     "@prisma/client": "6.4.1",
