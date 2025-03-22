@@ -11,7 +11,7 @@ describe('Create gym service', () => {
     createGymService = new CreateGymService(gymsRepository)
   })
 
-  it(`should be able to register.`, async () => {
+  it(`should be able to create a gym.`, async () => {
     const { gym } = await createGymService.execute({
       title: 'JavaScript Gym',
       description: null,
