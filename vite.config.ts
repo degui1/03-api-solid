@@ -8,5 +8,25 @@ export default defineConfig({
     coverage: {
       all: false,
     },
+    dir: 'src',
+    workspace: [
+      {
+        extends: true,
+        test: {
+          dir: 'src/http/controllers',
+          name: 'e2e',
+          environment:
+            './prisma/vitest-environment-prisma/prisma-test-environment.ts',
+        },
+      },
+      {
+        extends: true,
+        test: {
+          dir: 'src/services',
+          environment: 'node',
+          name: 'unit',
+        },
+      },
+    ],
   },
 })
