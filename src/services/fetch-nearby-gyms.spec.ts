@@ -11,7 +11,7 @@ describe('Fetch nearby Gyms service', () => {
     sut = new FetchNearbyGymsService(gymsRepository)
   })
 
-  it('should be able to search for gyms', async () => {
+  it('should be able to search gyms by title', async () => {
     await gymsRepository.create({
       title: 'Near Gym',
       description: null,

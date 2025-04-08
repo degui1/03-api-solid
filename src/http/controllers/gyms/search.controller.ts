@@ -12,7 +12,7 @@ export async function searchController(
     page: z.coerce.number().min(1).default(1),
   })
 
-  const { page, query } = searchGymsQuerySchema.parse(request.body)
+  const { page, query } = searchGymsQuerySchema.parse(request.query)
 
   const searchGymsService = makeSearchGymsService()
 

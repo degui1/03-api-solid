@@ -8,15 +8,15 @@ export async function nearbyController(
   reply: FastifyReply,
 ) {
   const nearbyQuerySchema = z.object({
-    latitude: z.number().refine((value) => {
+    latitude: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 90
     }),
-    longitude: z.number().refine((value) => {
+    longitude: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 180
     }),
   })
 
-  const { latitude, longitude } = nearbyQuerySchema.parse(request.body)
+  const { latitude, longitude } = nearbyQuerySchema.parse(request.query)
 
   const createGymService = makeFetchNearbyGymsService()
 
